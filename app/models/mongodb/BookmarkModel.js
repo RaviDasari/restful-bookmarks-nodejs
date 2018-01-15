@@ -36,8 +36,7 @@ BookmarkSchema.set('toObject', { getters: true });
 mongoose.model('Bookmark', BookmarkSchema);
 
 //--- connect to mongodb
-//mongoose.connect('mongodb://localhost/bookmark-app');
-mongoose.connect('mongodb://ravidasari:abc#123@ds155577.mlab.com:55577/chatbot');
+mongoose.connect('mongodb://localhost/bookmark-app');
 
 //-----------------------------------------------------------
 

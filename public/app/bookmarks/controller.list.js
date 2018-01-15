@@ -144,4 +144,8 @@ function ($rootScope, $scope, $location, resource, pagination) {
 
   loadData(pagination.getNextPage(), $scope.filter.search);
 
+  $scope.$on('globalSearch', function(e) {  
+    loadData(pagination.getNextPage(), $scope.globalSearchString);        
+  });
+
 }]);

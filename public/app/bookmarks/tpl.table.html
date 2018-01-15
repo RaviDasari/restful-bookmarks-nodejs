@@ -30,7 +30,7 @@
       <thead class="thead-light">
         <tr>
           <th class="visible-xs">S. No.</th>
-          <th>Name <i class="glyphicon glyphicon-new-window" title="Open in new window"></i></th>
+          <th>Name <i class="fa fa-external-link-square" title="Opens in new window"></i></th>
           <th>Description</th>
           <th>Keywords</th>
           <th class="hidden-xs text-center">Actions</th>
@@ -47,6 +47,9 @@
           <td class="hidden-xs text-center">
             <a href="#bookmarks/edit/{{bookmark.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
           </td>
+        </tr>
+        <tr ng-show="!bookmarks.data || bookmarks.data.length == 0">
+          <td colspan="5" class="text-center">No Data Available</td>
         </tr>
       </tbody>
     </table>
