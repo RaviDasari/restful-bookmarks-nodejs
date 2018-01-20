@@ -36,8 +36,8 @@ BookmarkSchema.set('toObject', { getters: true });
 mongoose.model('Bookmark', BookmarkSchema);
 
 //--- connect to mongodb
-//mongoose.connect('mongodb://localhost/bookmark-app');
-mongoose.connect('mongodb://ravidasari:abc#123@ds155577.mlab.com:55577/chatbot');
+//mongoose.connect('mongodb://localhost:27017/bookmark-app');
+mongoose.connect('mongodb://' + process.env.muser + ':' + encodeURIComponent(process.env.mpwd) + '@ds155577.mlab.com:55577/chatbot');
 
 //-----------------------------------------------------------
 
@@ -225,7 +225,7 @@ function getScore(text, keywords){
   keywords = _.isString(keywords) ? keywords.split(' ') : keywords;
   _.forEach(keywords, function(keyword) {
     
-    count += _.size(text.match(new RegExp(keyword, "g")));
+    count += (text ? _.size(text.match(new RegExp(keyword, "g"))) : 0);
   })
   //console.log('Count: ' + count)
   return count;

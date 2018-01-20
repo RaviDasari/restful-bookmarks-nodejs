@@ -4,10 +4,10 @@ angular.module('app').controller(
   'MainCtrl', 
 
   // dependencies injection
-  ['ProgressConfig', 'MenuConfig', 
+  ['$scope', 'ProgressConfig', 'MenuConfig', 
 
 // controller definition
-function(progressConfig, menu) {  
+function($scope, progressConfig, menu) {  
 
   //--- @begin: loading progressbar config
   progressConfig.eventListeners();
@@ -18,5 +18,12 @@ function(progressConfig, menu) {
   menu.addMenuItem('Boorkmars', 'bookmarks');
   menu.addMenuItem('About', 'about');  
   //--- @end: menu items 
+
+  $scope.globalSearchString = '';
+  $scope.triggerGlobalSearch = function(event) {
+    $scope.globalSearchString = event.currentTarget.value;
+    $scope.$broadcast('globalSearch');
+    return $scope.globalSearchString;  
+  }
 
 }]);
